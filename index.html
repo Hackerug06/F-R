@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F&R Rwanda Ltd - School of Proficiency and Fluency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--light-color);
+            font-style: italic;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        /* Courses Section */
+        .courses {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .courses-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .course-content {
+            padding: 1.5rem;
+        }
+        
+        .course-category {
+            display: inline-block;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .course-content h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .course-price {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+        
+        .course-instructor {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .instructor-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 0.8rem;
+            background-size: cover;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(52, 152, 219, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 1rem;
+            background-size: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.3rem;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: var(--warning-color);
+            margin-top: 0.3rem;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .pricing-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Payment Methods */
+        .payment-methods {
+            padding: 2rem 0;
+            background-color: white;
+        }
+        
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .payment-card {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .payment-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .payment-card h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-details {
+            font-family: monospace;
+            background-color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-col p {
+            margin-bottom: 1rem;
+            color: #bdc3c7;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        .modal h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">🎓</div>
+                <div class="logo-text">
+                    <h1>F&R Rwanda Ltd</h1>
+                    <p>School of Proficiency and Fluency</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="btn btn-accent" id="registerBtn">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Master Languages & Subjects with Expert Tutors</h2>
+            <p>Join F&R Rwanda Ltd and unlock your potential with our comprehensive language and subject courses. Flexible schedules, expert instructors, and personalized learning paths.</p>
+            <a href="#courses" class="btn">Explore Courses</a>
+            <a href="#pricing" class="btn btn-accent">View Pricing</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our School</h2>
+                <p>We provide the best learning experience with our unique approach and expert instructors.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from certified professionals with years of teaching experience in their respective fields.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Flexible Learning</h3>
+                    <p>Choose between online or in-person classes with schedules that fit your lifestyle.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Quality education at competitive prices with flexible payment plans for all budgets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Courses</h2>
+                <p>Explore our comprehensive selection of language and subject courses designed for all levels.</p>
+            </div>
+            <div class="courses-tabs">
+                <button class="tab-btn active" data-tab="languages">Languages</button>
+                <button class="tab-btn" data-tab="subjects">Academic Subjects</button>
+                <button class="tab-btn" data-tab="skills">Professional Skills</button>
+            </div>
+            <div class="courses-grid" id="languages-tab">
+                <!-- Language Courses -->
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <span class="course-category">Language</span>
+                        <h3>English Language</h3>
+                        <p>Master English from beginner to advanced levels with our comprehensive curriculum.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 3 months</span>
+                            <span><i class="fas fa-user-graduate"></i> All levels</span>
+                        </div>
+                        <div class="course-price">$30/month (online)<br>$60/month (in-person)</div>
+                        <div class="course-instructor">
+                            <div class="instructor-img" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+                            <div>
+                                <h4>Sarah Johnson</h4>
+                                <p>English Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <span class="course-category">Language</span>
+                        <h3>French Language</h3>
+                        <p>Learn the language of love with our immersive French language program.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 3 months</span>
+                            <span><i class="fas fa-user-graduate"></i> All levels</span>
+                        </div>
+                        <div class="course-price">$30/month (online)<br>$60/month (in-person)</div>
+                        <div class="course-instructor">
+                            <div class="instructor-img" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
+                            <div>
+                                <h4>Pierre Dubois</h4>
+                                <p>French Native Speaker</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <span class="course-category">Language</span>
+                        <h3>Kinyarwanda</h3>
+                        <p>Master Rwanda's native language with cultural insights and practical usage.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 2 months</span>
+                            <span><i class="fas fa-user-graduate"></i> All levels</span>
+                        </div>
+                        <div class="course-price">$30/month (online)<br>$60/month (in-person)</div>
+                        <div class="course-instructor">
+                            <div class="instructor-img" style="background-image: url('https://randomuser.me/api/portraits/women/63.jpg');"></div>
+                            <div>
+                                <h4>Marie Uwase</h4>
+                                <p>Kinyarwanda Expert</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="courses-grid" id="subjects-tab" style="display: none;">
+                <!-- Subject Courses -->
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <span class="course-category">Mathematics</span>
+                        <h3>Advanced Mathematics</h3>
+                        <p>Master complex mathematical concepts with our expert-led course.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 4 months</span>
+                            <span><i class="fas fa-user-graduate"></i> High School/College</span>
+                        </div>
+                        <div class="course-price">$80/month (in-person)</div>
+                        <div class="course-instructor">
+                            <div class="instructor-img" style="background-image: url('https://randomuser.me/api/portraits/men/75.jpg');"></div>
+                            <div>
+                                <h4>Dr. James Mugisha</h4>
+                                <p>Mathematics Professor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <span class="course-category">Science</span>
+                        <h3>Physics & Chemistry</h3>
+                        <p>Understand the fundamental principles of physics and chemistry.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 4 months</span>
+                            <span><i class="fas fa-user-graduate"></i> High School/College</span>
+                        </div>
+                        <div class="course-price">$80/month (in-person)</div>
+                        <div class="course-instructor">
+                            <div class="instructor-img" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg');"></div>
+                            <div>
+                                <h4>Dr. Amina Niyigena</h4>
+                                <p>Science Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1581093450021-4a7360e9a9f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <span class="course-category">Technology</span>
+                        <h3>Computer Science</h3>
+                        <p>Learn programming, algorithms, and computer fundamentals.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 6 months</span>
+                            <span><i class="fas fa-user-graduate"></i> All levels</span>
+                        </div>
+                        <div class="course-price">$80/month (in-person)</div>
+                        <div class="course-instructor">
+                            <div class="instructor-img" style="background-image: url('https://randomuser.me/api/portraits/men/22.jpg');"></div>
+                            <div>
+                                <h4>Eric Mutabazi</h4>
+                                <p>Software Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="courses-grid" id="skills-tab" style="display: none;">
+                <!-- Skills Courses -->
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <span class="course-category">Professional Skill</span>
+                        <h3>Public Speaking</h3>
+                        <p>Overcome stage fright and deliver powerful presentations with confidence.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 2 months</span>
+                            <span><i class="fas fa-user-graduate"></i> All levels</span>
+                        </div>
+                        <div class="course-price">$60/month (in-person)</div>
+                        <div class="course-instructor">
+                            <div class="instructor-img" style="background-image: url('https://randomuser.me/api/portraits/women/28.jpg');"></div>
+                            <div>
+                                <h4>Grace Uwimana</h4>
+                                <p>Communication Coach</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <span class="course-category">Professional Skill</span>
+                        <h3>Social Skills</h3>
+                        <p>Develop strong interpersonal skills for personal and professional success.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 2 months</span>
+                            <span><i class="fas fa-user-graduate"></i> All levels</span>
+                        </div>
+                        <div class="course-price">$60/month (in-person)</div>
+                        <div class="course-instructor">
+                            <div class="instructor-img" style="background-image: url('https://randomuser.me/api/portraits/men/45.jpg');"></div>
+                            <div>
+                                <h4>David Nkusi</h4>
+                                <p>Social Skills Trainer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <span class="course-category">Professional Skill</span>
+                        <h3>Entrepreneurship</h3>
+                        <p>Learn how to start and grow your own successful business.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 3 months</span>
+                            <span><i class="fas fa-user-graduate"></i> All levels</span>
+                        </div>
+                        <div class="course-price">$60/month (in-person)</div>
+                        <div class="course-instructor">
+                            <div class="instructor-img" style="background-image: url('https://randomuser.me/api/portraits/women/50.jpg');"></div>
+                            <div>
+                                <h4>Claire Uwera</h4>
+                                <p>Business Consultant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Students Say</h2>
+                <p>Hear from our students about their learning experiences with us.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>I came to Rwanda not speaking any Kinyarwanda. After just 2 months at F&R Rwanda, I can now have basic conversations with locals. The teachers are patient and make learning fun!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/women/33.jpg');"></div>
+                        <div class="author-info">
+                            <h4>Emily Johnson</h4>
+                            <p>Kinyarwanda Student</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The English course helped me improve my business communication skills significantly. I now feel confident participating in international meetings and writing professional emails.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/men/65.jpg');"></div>
+                        <div class="author-info">
+                            <h4>Jean Paul Habimana</h4>
+                            <p>Business Professional</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Thanks to the mathematics tutoring, my grades improved from a C to an A in just one term. The tutor explained complex concepts in a way that finally made sense to me.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/women/19.jpg');"></div>
+                        <div class="author-info">
+                            <h4>Ange Ingabire</h4>
+                            <p>High School Student</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Pricing Plans</h2>
+                <p>Affordable options for all learning needs with flexible payment plans.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Languages Online</h3>
+                    <div class="price">$30 <span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Live online classes</li>
+                        <li>Interactive sessions</li>
+                        <li>Weekly assignments</li>
+                        <li>Progress tracking</li>
+                        <li>Certificate of completion</li>
+                    </ul>
+                    <a href="#" class="btn">Enroll Now</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-tag">Most Popular</div>
+                    <h3>Languages In-Person</h3>
+                    <div class="price">$60 <span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Face-to-face instruction</li>
+                        <li>Small class sizes</li>
+                        <li>Interactive activities</li>
+                        <li>Cultural immersion</li>
+                        <li>Certificate of completion</li>
+                    </ul>
+                    <a href="#" class="btn btn-accent">Enroll Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Academic Subjects</h3>
+                    <div class="price">$80 <span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Expert subject tutoring</li>
+                        <li>Personalized learning</li>
+                        <li>Exam preparation</li>
+                        <li>Homework assistance</li>
+                        <li>Progress reports</li>
+         </ul>
+                    <a href="#" class="btn">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Payment Methods</h2>
+                <p>Secure and convenient payment options available for your convenience.</p>
+            </div>
+            <div class="payment-grid">
+                <div class="payment-card">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Mobile Money</h4>
+                    <p>Pay via MTN Mobile Money</p>
+                    <div class="payment-details">+250788821971</div>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h4>Momo Pay</h4>
+                    <p>Pay via Momo Pay</p>
+                    <div class="payment-details">303211</div>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h4>Bank Transfer</h4>
+                    <p>Pay via Equity Bank</p>
+                    <div class="payment-details">4015101074098</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Learning Journey?</h2>
+            <p>Join hundreds of students who have transformed their language and academic skills with our expert tutors. Flexible schedules and personalized learning await you.</p>
+            <div class="btn-group">
+                <a href="#" class="btn" id="ctaRegisterBtn">Register Now</a>
+                <a href="#contact" class="btn btn-accent">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About F&R Rwanda</h3>
+                    <p>School of Proficiency and Fluency offering language courses, academic tutoring, and professional skills development in Rwanda.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Courses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Languages</a></li>
+                        <li><a href="#">Academic Subjects</a></li>
+                        <li><a href="#">Professional Skills</a></li>
+                        <li><a href="#">Online Classes</a></li>
+                        <li><a href="#">In-Person Classes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Kigali, Rwanda</p>
+                    <p><i class="fas fa-phone"></i> +250 788 821 971</p>
+                    <p><i class="fas fa-envelope"></i> info@frrwanda.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-6PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 F&R Rwanda Ltd. All Rights Reserved. | School of Proficiency and Fluency</p>
+            </div>
+        </div>
+          </footer>
+            <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create Your Account</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="userType">I am a:</label>
+                    <select id="userType" required>
+                        <option value="">Select account type</option>
+                        <option value="student">Student</option>
+                        <option value="instructor">Instructor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="interests">Interests (Select at least one)</label>
+                    <select id="interests" multiple>
+                        <option value="english">English</option>
+                        <option value="french">French</option>
+                        <option value="kinyarwanda">Kinyarwanda</option>
+                        <option value="kiswahili">Kiswahili</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="math">Mathematics</option>
+                        <option value="physics">Physics</option>
+                        <option value="chemistry">Chemistry</option>
+                        <option value="biology">Biology</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="geography">Geography</option>
+                        <option value="entrepreneurship">Entrepreneurship</option>
+                        <option value="public_speaking">Public Speaking</option>
+                        <option value="social_skills">Social Skills</option>
+                        <option value="communication">Communication Skills</option>
+                        <option value="writing">Writing Skills</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-accent" id="cancelRegistration">Cancel</button>
+                    <button type="submit" class="btn">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Course Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const languagesTab = document.getElementById('languages-tab');
+        const subjectsTab = document.getElementById('subjects-tab');
+        const skillsTab = document.getElementById('skills-tab');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding tab
+                if (btn.dataset.tab === 'languages') {
+                    languagesTab.style.display = 'grid';
+                    subjectsTab.style.display = 'none';
+                    skillsTab.style.display = 'none';
+                } else if (btn.dataset.tab === 'subjects') {
+                    languagesTab.style.display = 'none';
+                    subjectsTab.style.display = 'grid';
+                    skillsTab.style.display = 'none';
+                } else if (btn.dataset.tab === 'skills') {
+                    languagesTab.style.display = 'none';
+                    subjectsTab.style.display = 'none';
+                    skillsTab.style.display = 'grid';
+                }
+            });
+        });
+        
+        // Registration Modal
+        const registerBtn = document.getElementById('registerBtn');
+        const ctaRegisterBtn = document.getElementById('ctaRegisterBtn');
+        const registrationModal = document.getElementById('registrationModal');
+        const closeModal = document.querySelector('.close-modal');
+        const cancelRegistration = document.getElementById('cancelRegistration');
+        
+        registerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            registrationModal.style.display = 'flex';
+        });
+        
+        ctaRegisterBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            registrationModal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            registrationModal.style.display = 'none';
+        });
+        
+        cancelRegistration.addEventListener('click', () => {
+            registrationModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === registrationModal) {
+                registrationModal.style.display = 'none';
+            }
+        });
+      // Form Submission
+        const registrationForm = document.getElementById('registrationForm');
+        
+        registrationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Registration submitted successfully! We will contact you shortly.');
+            registrationModal.style.display = 'none';
+            registrationForm.reset();
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
